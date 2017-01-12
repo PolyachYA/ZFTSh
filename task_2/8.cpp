@@ -6,10 +6,10 @@ using namespace std;
 // is 1 if c is ',' or '.'
 bool isSeparator(char c);
 
-// is 1 if c is a part of the EN alphabet is separator
+// is 1 if c is a part of the EN alphabet or is a separator
 bool isIn(char c);
 
-// read char and convert it into UPPER case
+// read a char and convert it into UPPER case
 char readUpper(void);
 void readUpper(char *c);
 
@@ -35,7 +35,7 @@ int main()
             // ok is still 1 -> current word is fully fight
             if(ok) ++n;
         } else {
-            // 1st symbol isn't in range -> word isn't right -> just read the whole word to next separator
+            // 1st symbol isn't in range -> word isn't right -> just read the whole word to a next separator
             do{ cin >> c2; }while(!isSeparator(c2));
         }
     }while(c2!='.');
