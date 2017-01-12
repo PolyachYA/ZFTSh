@@ -9,7 +9,7 @@ bool isSeparator(char c);
 // is 1 if c is a part of the EN alphabet is separator
 bool isIn(char c);
 
-// read char and convert in to UPPER case
+// read char and convert it into UPPER case
 char readUpper(void);
 void readUpper(char *c);
 
@@ -22,18 +22,20 @@ int main()
     cout << "format is:\n*,*,*,*.....*,*.\nenter your string\n-> ";
     do{
         readUpper(&c1);
-        if(isIn(c1)){
+        if(isIn(c1)){            
             ok=1;
             do{
                 readUpper(&c2);
                 if(ok && !isSeparator(c2)){
                     ok = (c2>=c1) && isIn(c2);
+                    // move the cursor
                     if(ok) c1=c2;
                 }
             }while(!isSeparator(c2));
+            // ok is still 1 -> current word is fully fight
             if(ok) ++n;
         } else {
-            // just read to next separator
+            // 1st symbol isn't in range -> word isn't right -> just read the whole word to next separator
             do{ cin >> c2; }while(!isSeparator(c2));
         }
     }while(c2!='.');
